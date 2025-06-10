@@ -1,5 +1,3 @@
-const url = 'https://jsonplaceholder.typicode.com/posts';
-
 /**
  * Estamos probando la tres maneras de manejar el asincronimos primero que son
  * 1. Promises
@@ -8,7 +6,7 @@ const url = 'https://jsonplaceholder.typicode.com/posts';
  *
  * y observar como se usan y cuando
  */
-
+const url = 'https://jsonplaceholder.typicode.com/posts';
 // Funtions the get data url
 const getData = async (url,_callback)=>{
     const data = fetch(url)
@@ -22,18 +20,19 @@ const getData = async (url,_callback)=>{
  */
 
 //Promise-based fetch example
-getData(url).then(Response =>{
-    Response.json().then(data =>{
-        console.log(data);
-    })
+getData(url)
+.then(Response => Response.json())
+.then(data =>{
+    console.log(data);
 })
-
 
 /**
  * Las callbacks no pueden acceder directamente al valor de una Promesa si esta aún no se ha resuelto.
  * Para manejar resultados asíncronos dentro de una callback,es necesario usar .then() o await,
  * dependiendo de si la función externa es síncrona o asíncrona.
  */
+
+
 //Callaback-based fetch example
 getData(url,(dataResponse)=>{
     dataResponse.then((res)=>{
