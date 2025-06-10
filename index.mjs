@@ -10,6 +10,7 @@ const url = 'https://jsonplaceholder.typicode.com/posts';
 // Funtions the get data url
 const getData = async (url,_callback)=>{
     const data = fetch(url)
+    _callback(data)
     return data
 }
 /**
@@ -24,6 +25,9 @@ getData(url)
 .then(Response => Response.json())
 .then(data =>{
     console.log(data);
+})
+.catch(err =>{
+    console.log("Error encontrado" + err);
 })
 
 /**
