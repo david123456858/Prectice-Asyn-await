@@ -10,7 +10,7 @@ const url = 'https://jsonplaceholder.typicode.com/posts';
 // Funtions the get data url
 const getData = async (url,_callback)=>{
     const data = fetch(url)
-    _callback(data)
+    //_callback(data)
     return data
 }
 /**
@@ -22,6 +22,7 @@ const getData = async (url,_callback)=>{
 
 //Promise-based fetch example
 getData(url)
+.then(console.log('y llego acá, porque? NOSE'))
 .then(Response => Response.json())
 .then(data =>{
     console.log(data);
