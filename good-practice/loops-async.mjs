@@ -1,9 +1,6 @@
 const usersId = [1,2,3,4,5]
 
 const getUserId = async (id)=>{
-    if(id === 1){
-        return new Promise(resolved =>{})
-    }
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     return res.json()
 }
@@ -44,6 +41,7 @@ const getIdLoop = async ()=>{
     const users =  await Promise.allSettled(result)
     return users
 }
+
 console.time('paralelo')
 await getIdLoopPromiseAll()
 console.timeEnd('paralelo')
@@ -51,3 +49,7 @@ console.timeEnd('paralelo')
 console.time('uno')
 await fetchGetId()
 console.timeEnd('uno')
+
+console.time('paralelo2')
+await getIdLoop()
+console.timeEnd('paralelo2')
