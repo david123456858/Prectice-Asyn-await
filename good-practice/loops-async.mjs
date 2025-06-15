@@ -6,6 +6,7 @@ const getUserId = async (id)=>{
 }
 
 /**
+ * 
  * Esta funcion recorre el array con un simple for y luego lo que hace
  * es ir ejecutando la busqueda de cada id uno por uno, y esto hace el retraso o latencia 
  * en la entrega de información
@@ -35,7 +36,21 @@ const getIdLoopPromiseAll = async ()=>{
     return users
 }
 
+/**
+ * 
+ * @returns {Promise.allSettled(result)}
+ * y bueno en algunos casos (si no en todos) al aparecer dura mucho menos el utilizarlo
+ * realmente la comparativa es muy interesante de observar en este pequeño ejemplo
+ */
 
+
+/**
+ * 
+ * @returns {Comparativa}
+ * paralelo: 267.093ms --> resolviendo promesas en paraleo con Promise.all
+ * uno: 363.964ms --> resolviendo promesa por promesa
+ * paralelo2: 68.239ms --> resolviendo promesas en paraleo con Promise.allSettled
+ */
 const getIdLoop = async ()=>{
     const result = usersId.map(id => getUserId(id))
     const users =  await Promise.allSettled(result)

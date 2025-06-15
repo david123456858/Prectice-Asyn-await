@@ -12,13 +12,6 @@ const getSetTime = ()=>{
     })
 }
 
-const hoa = new Promise((resolve, reject)=>{
-    resolve('Se resolvio la promesa correctamente')
-    if(reject){
-        reject('paso algo malo')
-    }
-})
-
 const getDataTime = async ()=>{  
     const data = await getSetTime();
     console.log(data);
