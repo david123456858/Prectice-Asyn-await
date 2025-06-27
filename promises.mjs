@@ -6,9 +6,12 @@
 
 const getSetTime = ()=>{
     return new Promise((resolve)=>{
+        
         setTimeout(()=>{
             resolve('📦 Data received!')
         },1000)
+    },(reject)=>{
+        reject(console.log('algo salio mal'))
     })
 }
 
