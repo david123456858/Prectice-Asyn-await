@@ -21,3 +21,12 @@ const getDataTime = async ()=>{
 }
 
 getDataTime()
+
+
+void (async () =>{
+    return new Promise ((resolve)=>{
+        setTimeout(()=>{
+            resolve('Se devuelve')
+        },2000)
+    }) 
+})
